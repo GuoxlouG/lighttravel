@@ -18,7 +18,10 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        speed: 2000,
+        autoplay: 1500,
+        autoplayDisableOnInteraction: false
       },
       swiperList: [{
         id: '0001',
@@ -28,7 +31,7 @@ export default {
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg'
       }, {
         id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1807/c6/44fce1467be17702.jpg_750x200_406f5fc3.jpg'
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1712/51/36632b2cb850e902.jpg_750x200_fa4120db.jpg'
       }, {
         id: '0004',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1808/de/e95123fbecaba802.jpg_750x200_9cfebb13.jpg'
