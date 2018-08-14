@@ -85,30 +85,32 @@ export default {
     height: 0
     width: 100%
     padding-bottom: 50%
-  .icon
-    position: relative
-    overflow: hidden
-    float: left
-    width: 25%
-    height: 0
-    padding-bottom: 25%
-    .icon-img
-      position: absolute
-      left: 0
-      top: 0
-      right: 0
-      bottom: .44rem
-      padding-top: .08rem
-      .icon-img-content
-        height: 100%
-        display: block
-        margin: 0 auto
-    .icon-title
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
-      text-align: center
-      color: $blackTextColor
-      ellipsis()
+  .icons-container
+    margin-top: .1rem
+    .icon
+      position: relative
+      overflow: hidden
+      float: left
+      width: 25%
+      height: 0
+      padding-bottom: 25%
+      .icon-img
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: .44rem
+        padding-top: .08rem
+        .icon-img-content
+          height: 100%
+          display: block
+          margin: 0 auto
+      .icon-title
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        text-align: center
+        color: $blackTextColor
+        ellipsis()
 </style>
