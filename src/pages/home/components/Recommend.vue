@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -18,31 +18,14 @@
 
 export default {
   name: 'homerecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪斯尼乐园',
-        price: '¥1起'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪斯尼乐园',
-        price: '¥1起'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪斯尼乐园',
-        price: '¥1起'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  @import '~@/assets/style/mixins.styl'
+  @import '~styles/mixins.styl'
   .recommend-title
     margin-top: .2rem
     padding-left: .15rem
@@ -72,4 +55,5 @@ export default {
       .item-button
         border-radius: .05rem
         padding: .05rem
+        background: #ffe4e1
 </style>
