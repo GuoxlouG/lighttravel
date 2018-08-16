@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-    <router-link to="./"><div class="iconfont icon-back">&#xe624;</div></router-link>
+      <router-link to="/"><div class="iconfont city-back">&#xe624;</div></router-link>
     城市选择
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
     color: #fff
     background: $bgColor
     font-size: .34rem
-      .icon-back
+    .city-back
         width: .64rem
         float: left
         font-size: .42rem
