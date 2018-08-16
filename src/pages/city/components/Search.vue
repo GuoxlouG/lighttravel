@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'cityheader'
+  name: 'citysearch'
 }
 </script>
 
