@@ -7,63 +7,23 @@
           <div class="button-container">
             <div class="button">北京</div>
           </div>
+
         </div>
       </div>
 
       <div class="container">
         <div class="title">热门城市</div>
         <div class="button-list">
-          <div class="button-container">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-container">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-container">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-container">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-container">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-container">
-            <div class="button">北京</div>
+          <div class="button-container" v-for="item of hotlist" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="title">A</div>
+      <div class="container" v-for="(item,key) of citylist" :key="key">
+        <div class="title">{{key}}</div>
         <div class="item-list">
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="title">A</div>
-        <div class="item-list">
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="title">A</div>
-        <div class="item-list">
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
-          <div class="item">淡淡的</div>
+          <div class="item" v-for="cityitem of item" :key="cityitem.id">{{cityitem.name}}</div>
         </div>
       </div>
     </div>
@@ -74,6 +34,10 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'citylist',
+  props: {
+    hotlist: Array,
+    citylist: Object
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.scroll)
   }
@@ -98,11 +62,11 @@ export default {
       overflow: hidden
       .button-container
         float: left
-        width: 33.33%
+        width: 33.333%
         .button
           text-align: center
           border: .01rem solid #eaeaea
-          padding: .18rem
+          padding: .28rem
     .item-list
       .item
         line-height: .76rem

@@ -1,17 +1,17 @@
 <template>
   <div>
     <ul class="list">
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
+      <li class="item" v-for="(item, key) of cities" :key="key">{{key}}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'cityindex'
+  name: 'cityindex',
+  props: {
+    cities: Object
+  }
 }
 </script>
 
@@ -26,5 +26,5 @@ export default {
     top: 0
     bottom: 0
     width: .3rem
-    color: $bgColor
+    color: #ffaeb9
 </style>
