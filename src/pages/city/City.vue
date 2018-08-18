@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotlist="hotCities" :citylist="cities"></city-list>
-    <city-index :cities="cities"></city-index>
+    <city-list :hotlist="hotCities" :citylist="cities" :index="index"></city-list>
+    <city-index :cities="cities" @change="handleChange"></city-index>
   </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
   data () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      index: ''
     }
   },
   methods: {
@@ -39,6 +40,9 @@ export default {
         this.hotCities = data.hotCities
         this.cities = data.cities
       }
+    },
+    handleChange (index) {
+      this.index = index
     }
   },
   mounted () {
