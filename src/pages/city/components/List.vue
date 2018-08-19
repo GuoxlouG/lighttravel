@@ -5,16 +5,15 @@
         <div class="title">当前城市</div>
         <div class="button-list">
           <div class="button-container">
-            <div class="button">北京</div>
+            <div class="button">{{this.currentCity}}</div>
           </div>
-
         </div>
       </div>
 
       <div class="container">
         <div class="title">热门城市</div>
         <div class="button-list">
-          <div class="button-container" v-for="item of hotlist" :key="item.id">
+          <div class="button-container" v-for="item of hotlist" :key="item.id" @click="handleCity(item.name)">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -23,7 +22,7 @@
       <div class="container" v-for="(item,key) of citylist" :key="key" :ref="key">
         <div class="title">{{key}}</div>
         <div class="item-list">
-          <div class="item" v-for="cityitem of item" :key="cityitem.id">{{cityitem.name}}</div>
+          <div class="item" v-for="cityitem of item" :key="cityitem.id" @click="handleCity(cityitem.name)">{{cityitem.name}}</div>
         </div>
       </div>
     </div>
@@ -32,6 +31,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'citylist',
   props: {
@@ -39,8 +39,17 @@ export default {
     citylist: Object,
     index: String
   },
-  mounted () {
-    this.scroll = new Bscroll(this.$refs.scroll)
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    ...mapMutations(['changeCity']),
+    handleCity (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    }
   },
   watch: {
     index () {
@@ -49,6 +58,9 @@ export default {
         this.scroll.scrollToElement(ele)
       }
     }
+  },
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.scroll)
   }
 }
 </script>
@@ -76,10 +88,11 @@ export default {
           text-align: center
           border: .01rem solid #eaeaea
           padding: .28rem
+          color: #4d4d4d
     .item-list
       .item
         line-height: .76rem
-        color: #7d7d7d
+        color: #4d4d4d
         padding-left: .3rem
         border-bottom: .01rem solid #eaeaea
 </style>

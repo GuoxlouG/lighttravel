@@ -6,7 +6,7 @@
     <div>
       <div class="search-content" :class="[activated]">
         <ul>
-          <li class="city-item" v-for="item of list" :key="item.id">
+          <li class="city-item" v-for="item of list" :key="item.id" @click="handlecity(item.name)">
             {{item.name}}
           </li>
         </ul>
@@ -27,6 +27,12 @@ export default {
       list: [],
       timer: null,
       activated: 'activated'
+    }
+  },
+  methods: {
+    handlecity (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {
